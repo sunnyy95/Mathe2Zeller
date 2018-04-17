@@ -1,0 +1,134 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[doublespacing]{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{changes}
+\usepackage{ulem}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+{\Huge \textbf{MATHEMATIK II F"UR INFORMATIKER}}\\
+~\\
+~\\
+~\\
+{\huge Sommersemester 2018 \\
+~\\
+R"udiger Zeller}\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+{\small Mitschrift von Dominique Wernado}
+\end{center}
+\end{titlepage}
+\tableofcontents
+\newpage
+
+
+\section{Folgen}
+Grundbegriffe und Beispiele
+\subsection{Definition (Folge)}
+Eine Folge $(a_n)_{n \in \mathbb{N}}$ ist eine Abbildung von der Menge $\mathbb{N}$ in eine Menge M (oft $M \in \mathbb{R}$. \\
+$a_n$ ist n-tes Folgenglied \\
+n ist Index \\
+Oft ist das erste Folgenglied nicht $a_1$, sondern z.B. $a_7$. \\
+Schreibweise: $(a_n)_{n \in \mathbb{N}}$, $(a_n)_{n \geq n_0}$ oder $(a_n)$.
+\subsection{Beispiel}
+\begin{description}
+\item[a)]
+$a_n = c \forall n \in \mathbb{N}$ konstante Folge
+\item[b)]
+$a_n = n$
+*Zeichnung fehlt*
+\item[c)]
+$a_n = (-1)^n n \in \mathbb{N}$ alternierende Folge
+\item[d)]
+$a_n = \frac{1}{n}$ Nullfolge
+\item[e)]
+Rekursive Folgen, z.B. Fibonacci-Folge \\
+$f_1 = 1, f_2 = 1 , f_{n+1} = 
+\underbrace{f_n + f_{n-1}}_{\text{\normalfont Rekursionsformel}} \\
+f_3 = 1+1=2, f_4 = 3 , f_5 = 5$, usw.
+\item[f)]
+Exponentielles Wachstum (z.B. von Bakterien) \\
+Rekursiv: $x_{n+1} = q * x_n$ mit \\
+$n$ ist Generation \\
+$x_n$ ist Anzahl der Individuen in Generation n \\
+$q$ ist Wachstumsfaktor \\
+$x_0$ ist Startpopulation \\
+\\
+Explizit: $x_n = q^n * x_0$ \\
+z.B.: $x_0 = 5 , q = 2$ \\
+$\rightarrow x_1 = 10, x_2 = 20, x_3 = 40, x_4 = 80, ...$
+\item[g)]
+Logistisches Wachstum \\
+$x_{n+1} = r * x_n (1- x_n)$ \\
+$r \in [o,4]$ ist Wachstums - bzw. Sterbefaktor \\
+$ \underbrace{x_n}_{\in [0,1]}$ ist relative/prozentuale Anzahl der Individuen in Generation n \\
+\\
+Anzahl der Individuen in Generation $n+1$ h"angt ab von aktueller Populationsgr"o"se $x_n$ und den vorhandenen nat"urlichen Ressourcen, charakterisiert durch $(1-x_n)$.
+\end{description}
+\subsection{Definition (Beschr"ankte und alternierende Folgen)}
+Sei $(a_n)_{n \in \mathbb{N}}$ mit $a_n \in \mathbb{R} \forall n \in \mathbb{N}$.
+\begin{description}
+\item[a)]
+$(a_n)$ hei"st beschr"ankt $\Leftrightarrow |a_n| \leq K$ f"ur ein $K \geq 0$
+\item[b)]
+$(a_n)$ hei"st alternierend, falls die Glieder abwechselnd positiv und negativ sind.
+\end{description}
+\subsection{Beispiel}
+\begin{description}
+\item[i)]
+1.2 a), c), d) und g) sind beschr"ankt. b) und e) sind unbeschr"ankt.
+\item[ii)]
+1.2 c) ist alternierend.
+\end{description}
+\subsection{Definition (Konvergenz)}
+\begin{description}
+\item[a)]
+Eine Folge $(a_n)_{n \in \mathbb{N}}$ reeller Zahlen konvergiert gegen $a \in \mathbb{R}$, wenn es zu jedem $\epsilon > 0$ ein $N \in \mathbb{N}$ gibt (das von $\epsilon$ abh"angen darf), so dass \\
+$ |a_n - a | < \epsilon \forall n \geq \mathbb{N}$
+\\
+Kurschreibweise: $ \forall \epsilon > 0 \exists N \in \mathbb{N} \forall n \geq N: |a_n -a| < \epsilon$.
+\item[b)]
+$a \in \mathbb{R}$ hei"st Grenzwert oder Limes der Folge. Man schreibt $\underset{n \rightarrow \infty}{lim} a_n = a$ oder $a_n \rightarrow a$ f"ur $n \rightarrow \infty$ oder $a_n \underset{n \rightarrow\infty}{\rightarrow} a$ oder $a_n \rightarrow a$.
+\item[c)]
+Eine Folge $(a_n)$ mit Limes 0 hei"st Nullfolge.
+\item[d)]
+Eine Folge, die nicht konvergiert, hei"st divergent.
+\end{description}
+\subsection{Bemerkung}
+$a_n \rightarrow a$ bedeutet anschaulich: \\
+Gibt mindestens eine Fehlerschranke $\epsilon > 0$ vor, so sind ab einem bestimmten $N \in \mathbb{N}$ alle Folgenglieer weniger als $\epsilon$ von a entfernt. Je kleiner $\epsilon$, desto gr"o"ser muss i.A. N gew"ahlt werden. \\
+Solch ein N muss sich f"ur jedes noch so kleine $\epsilon$ finden lassen. Ansonsten ist $(a_n)$ divergent.
+\subsection{Beispiel}
+\begin{description}
+\item[a)]
+$a_n = \frac{1}{n}, (a_n)_{n \in \mathbb{N}}$ Nullfolge:
+\begin{description}
+\item[-]
+z.B.: W"ahle $\epsilon = \frac{1}{10}$. Dann ist f>"ur $N > 10$ \\
+$ | a_n - 0 | = | \frac{1}{n} | = \frac{1}{n} \underset{(N \leq n)}{\leq} \frac{1}{N} \underset{(N>10)}{<} \frac{1}{10} ~ ~ \forall n \geq N$
+\item[-]
+Allgemein (f"ur beliebiges $\epsilon$): \\
+Sei $\epsilon > 0$. Dann ist f"ur $N > \frac{1}{\epsilon} ~ |a_n - 0 | = \frac{1}{n} \leq \frac{1}{N} < \frac{1}{\frac{1}{\epsilon}} ~ ~ \forall n \geq N$.
+\end{description}
+\item[b)]
+$(a_n)_{n \in \mathbb{N}}$ mit $a_n = \frac{n+1}{3n}$ hat Limes $a = \frac{1}{3}$. \\
+Sei $\epsilon > 0$. Dann ist f"ur $N > \frac{1}{3 \epsilon}$ \\
+$ | a_n -a | = | \frac{n+1}{3n} - \frac{1}{3} | = \frac{n+1-n}{3n} = \frac{1}{3n} \underset{(n \leq N)}{\leq} \frac{1}{3N}$
+\item[c)]
+N muss nicht optimal gew"ahlt werden: \\
+$\frac{1}{n^3+n+5} \underset{n \rightarrow \infty}{\rightarrow} 0$ \\
+Sei $\epsilon > 0$ f"ur $N > *?*$ \\
+$| a_n - a | = \frac{1}{n^3+n+5} \underset{(n \geq N)}{\leq} \frac{1}{N^3 + N + 5} < \frac{1}{N} < \epsilon$
+\end{description}
+\end{document}
